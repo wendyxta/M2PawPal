@@ -1,15 +1,47 @@
 classDiagram
-    %% Replace the placeholders below with your actual classes, attributes, methods, and relationships.
-    %% Keep this file updated so it matches your final implementation.
-
-    class ClassName {
-        +type attribute
-        +method() returnType
+    class Owner {
+        +str name
+        +list pets
+        +addPet(pet) None
+        +removePet(pet) None
+        +getPets() list
     }
 
-    class AnotherClass {
-        +type attribute
-        +method() returnType
+    class Pet {
+        +str name
+        +str ownerId
+        +str healthNotes
+        +updateInfo(name, healthNotes) None
+        +getOwner() Owner
+        +getTasks() list
+        +getSchedule() TaskScheduler
+        +addTask(task) None
+        +removeTask(task) None
     }
 
-    ClassName --> AnotherClass : relationship
+    class Task {
+        <<abstract>>
+        +str title
+        +str time
+        +str priority
+        +str status
+        +getPriority() str
+        +getTime() str
+    }
+
+    class TaskScheduler {
+        +list tasks
+        +list priorityQueue
+        +str date
+        +Pet pet
+        +addTask(task) None
+        +getDailyTasks() list
+        +prioritizeTasks() list
+        +rescheduleTasks() None
+        +getTasksByTime() list
+        +getTasksByPriority() list
+    }
+
+    Owner "1" --> "*" Pet : owns
+    Pet "1" --> "1" TaskScheduler : schedules via
+    TaskScheduler "*" --> "*" Task : manages

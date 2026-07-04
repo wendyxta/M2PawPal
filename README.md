@@ -70,6 +70,29 @@ Sample test output:
 # Paste your pytest output here
 ```
 
+## System Design
+The 3 Core User Actions
+1. Adding pets
+2. Scheduling a walk
+3. Viewing daily tasks (walks, feeding sessions, grooming sessions, medication)
+
+Main objects (and attributes + methods) needed
+- Owner
+    - attributes: pets, name
+    - methods: addPet(), removePets(), getPets()
+- Pet
+    - attributes: name, ownerId, healthNotes
+    - methods: updateInfo(), getOwner(), getTasks(), getSchedule(), addTask(), removeTask()
+- Task
+    - attributes: title, time, priority, status
+    - methods: getPriority(), getTime()
+    - other subclasses of Task: WalkTask, FeedTask, GroomTask, AppointmentTask, MedicationTask
+- TaskScheduler
+    - attributes: tasks, priorityQueue, pet, dates
+    - methods: addTask(), getDailyTasks(), prioritizeTasks(), rescheduleTasks(), getTasksByTime(), getTasksByPriority()
+
+
+
 ## 📐 Smarter Scheduling
 
 > Fill in once you've implemented scheduling logic.
