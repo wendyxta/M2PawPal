@@ -2,15 +2,37 @@
 
 ## 1. System Design
 
+The 3 Core User Actions (Initial Plan)
+1. Adding pets
+2. Scheduling a walk
+3. Viewing daily tasks (walks, feeding sessions, grooming sessions, medication)
+
+Main objects (and attributes + methods) needed (Initial Plan)
+- Owner
+    - attributes: pets, name
+    - methods: addPet(), removePets(), getPets()
+- Pet
+    - attributes: name, ownerId, healthNotes
+    - methods: updateInfo(), getOwner(), getTasks(), getSchedule(), addTask(), removeTask()
+- Task
+    - attributes: title, time, priority, status
+    - methods: getPriority(), getTime()
+    - other subclasses of Task: WalkTask, FeedTask, GroomTask, AppointmentTask, MedicationTask
+- TaskScheduler
+    - attributes: tasks, pet, dates
+    - methods: addTask(), getDailyTasks(), prioritizeTasks(), rescheduleTasks(), getTasksByTime(), getTasksByPriority()
+
 **a. Initial design**
 
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
+    - I chose a design with the 4 main classes being the Pet, Owner, Task, and TaskScheduler. The Pet has a name, owner, and notes about its health. It is responsible for updating its health info, getting its owner, schedule, and tasks. It will also add and remove tasks. The Owner has a name and a list of pets. It is responsible for adding, rmeoving, and retrieving pets. A task has a title, time, priority, and completion status. It is responsible for getting its time and priority. The TaskScheduler is for a specific pet with dates, and tasks. It is responsible for task and schedule retrieval base don task time and priority.
 
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+    - Yes, several design changes were made. One change was adding missing relationship between the Pet and the TaskScheduler. Each pet should have a task scheduler, along with a list of tasks, since there needs to be a way to keep track of when all the tasks are scheduled in a combined system.
 
 ---
 

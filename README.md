@@ -65,32 +65,34 @@ pytest --cov
 ```
 
 Sample test output:
+  TODAY'S SCHEDULE — 2026-07-04
+  Owner: Bill
 
+  MOCHI
+  Note: Allergic to chicken
+  ------------------------------------
+  [PENDING] Morning walk at 07:00:00 (priority 1)
+  [PENDING] Breakfast feeding at 07:30:00 (priority 1)
+  [PENDING] Allergy medication at 08:00:00 (priority 2)
+
+  LUNA
+  Note: Takes joint supplement
+  ------------------------------------
+  [PENDING] Joint supplement at 07:00:00 (priority 1)
+  [PENDING] Dinner feeding at 17:00:00 (priority 1)
+  [PENDING] Evening walk at 18:30:00 (priority 2)
 ```
 # Paste your pytest output here
+================================================================== test session starts ===================================================================
+platform win32 -- Python 3.13.9, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\wendy2.0\Documents\GitHub\M2PawPal
+plugins: anyio-4.14.1
+collected 2 items                                                                                                                                         
+
+tests\test_pawpal.py ..                                                                                                                             [100%]
+
+=================================================================== 2 passed in 0.21s ====================================================================
 ```
-
-## System Design
-The 3 Core User Actions
-1. Adding pets
-2. Scheduling a walk
-3. Viewing daily tasks (walks, feeding sessions, grooming sessions, medication)
-
-Main objects (and attributes + methods) needed
-- Owner
-    - attributes: pets, name
-    - methods: addPet(), removePets(), getPets()
-- Pet
-    - attributes: name, ownerId, healthNotes
-    - methods: updateInfo(), getOwner(), getTasks(), getSchedule(), addTask(), removeTask()
-- Task
-    - attributes: title, time, priority, status
-    - methods: getPriority(), getTime()
-    - other subclasses of Task: WalkTask, FeedTask, GroomTask, AppointmentTask, MedicationTask
-- TaskScheduler
-    - attributes: tasks, priorityQueue, pet, dates
-    - methods: addTask(), getDailyTasks(), prioritizeTasks(), rescheduleTasks(), getTasksByTime(), getTasksByPriority()
-
 
 
 ## 📐 Smarter Scheduling
