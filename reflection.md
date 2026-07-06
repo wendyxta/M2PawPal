@@ -42,12 +42,13 @@ Main objects (and attributes + methods) needed (Initial Plan)
 
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
 - How did you decide which constraints mattered most?
+    - My scheduler considered the constraints of the available time in a day, and the priority of the tasks. For example, it handles conflicts when two tasks are scheduled at the same time. I decided that this was the constraint that mattered the most since time is one of those things that we can't get back, and every task is time dependent. They all take time to do and need a time slot, and people can't efficiently do multiple things that the same time. Secondly, to handle time conflicts, I considered the constraint of priority. Tasks with higher urgency were scheduled first.
 
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
-
+    - One tradeoff my scheduler makes is prioritizing the time a task is scheduled over the priority of a task. For example, if there is a lower urgency task such as feeding time, that occurs earlier in the day, and a more urgent task that occurs later in the day, such as a vet visit, the feeding task will still be prioritized and occur before the vet visit. This is reasonable because in real life, many tasks still need to routinely occur at set times, even though they may not be the most important tasks. In the scenario, it wouldn't make sense to starve the pet and skip the feeding task, just because the vet task is more urgent.
 ---
 
 ## 3. AI Collaboration

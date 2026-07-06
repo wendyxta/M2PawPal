@@ -101,10 +101,10 @@ tests\test_pawpal.py ..                                                         
 
 | Feature | Method(s) | Notes |
 |---------|-----------|-------|
-| Task sorting | | e.g., by priority, duration |
-| Filtering | | e.g., skip tasks if time runs out |
-| Conflict handling | | e.g., overlapping time slots |
-| Recurring tasks | | e.g., daily vs. weekly |
+| Task sorting | getTasksByTime() | sorts based on the time a task is scheduled (task happening sooner appear frist) |
+| Filtering | getTasksByPet(), getPendingTasks() | takes in the name of a Pet, filters tasks belonging to inputed Pet |
+| Conflict handling | checkConflicts() | overlapping time slots for one pet across pets belonging to same owner |
+| Recurring tasks | completeTask() | marks a task as complete, then checks if it recurs, and updates schedule for tasks recurring weekly and monthly |
 
 ## 📸 Demo Walkthrough
 
