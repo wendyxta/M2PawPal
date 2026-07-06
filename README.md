@@ -65,33 +65,98 @@ pytest --cov
 ```
 
 Sample test output:
-  TODAY'S SCHEDULE — 2026-07-04
+  TODAY'S SCHEDULE — 2026-07-05
   Owner: Bill
 
   MOCHI
   Note: Allergic to chicken
   ------------------------------------
-  [PENDING] Morning walk at 07:00:00 (priority 1)
-  [PENDING] Breakfast feeding at 07:30:00 (priority 1)
-  [PENDING] Allergy medication at 08:00:00 (priority 2)
+  [PENDING] Morning walk at 07:00 (priority 1)
+  [PENDING] Breakfast feeding at 07:30 (priority 1)
+  [PENDING] Allergy medication at 08:00 (priority 2)
 
   LUNA
   Note: Takes joint supplement
   ------------------------------------
-  [PENDING] Joint supplement at 07:00:00 (priority 1)
-  [PENDING] Dinner feeding at 17:00:00 (priority 1)
-  [PENDING] Evening walk at 18:30:00 (priority 2)
+  [PENDING] Joint supplement at 11:00 (priority 1)
+  [PENDING] Evening walk at 18:30 (priority 2)
+  [PENDING] Dinner feeding at 20:00 (priority 1)
+======================================
+  SORTED BY TIME 
+
+  MOCHI
+  ----------------------------------------
+  [PENDING] Morning walk at 07:00 (priority 1)
+  [PENDING] Breakfast feeding at 07:30 (priority 1)
+  [PENDING] Allergy medication at 08:00 (priority 2)
+
+  LUNA
+  ----------------------------------------
+  [PENDING] Morning weigh-in at 06:30 (priority 1)
+  [PENDING] Joint supplement at 11:00 (priority 1)
+  [PENDING] Noon play session at 12:30 (priority 2)
+  [PENDING] Evening walk at 18:30 (priority 2)
+  [PENDING] Dinner feeding at 20:00 (priority 1)
+======================================
+  PENDING TASKS ONLY
+
+  Mochi (3 pending)
+  ----------------------------------------
+  [PENDING] Morning walk at 07:00 (priority 1)
+  [PENDING] Breakfast feeding at 07:30 (priority 1)
+  [PENDING] Allergy medication at 08:00 (priority 2)
+
+  Luna (5 pending)
+  ----------------------------------------
+  [PENDING] Morning weigh-in at 06:30 (priority 1)
+  [PENDING] Joint supplement at 11:00 (priority 1)
+  [PENDING] Noon play session at 12:30 (priority 2)
+  [PENDING] Evening walk at 18:30 (priority 2)
+  [PENDING] Dinner feeding at 20:00 (priority 1)
+======================================
+  FILTER BY PET: Luna
+  [PENDING] Morning weigh-in at 06:30 (priority 1)
+  [PENDING] Joint supplement at 11:00 (priority 1)
+  [PENDING] Noon play session at 12:30 (priority 2)
+  [PENDING] Evening walk at 18:30 (priority 2)
+  [PENDING] Dinner feeding at 20:00 (priority 1)
+======================================
+  RECURRING TASKS 
+  Completing daily task -> should schedule for tomorrow:
+  [SCHEDULED] 'Morning medication' auto-scheduled for 2026-07-06
+
+  Completing weekly task -> should schedule for next week:
+  [SCHEDULED] 'Bath time' auto-scheduled for 2026-07-12
+
+  Mochi's schedule for tomorrow (2026-07-06):
+  ----------------------------------------
+  [PENDING] Morning medication at 08:00 (priority 1) [daily]
+
+  Mochi's schedule for next week (2026-07-12):
+  ----------------------------------------
+  [PENDING] Bath time at 10:00 (priority 2) [weekly]
+======================================
+  CONFLICT DETECTION 
+  [WARNING] Conflict at 08:00: 'Morning medication' (Mochi) vs 'Allergy medication' (Mochi)
+  [WARNING] Conflict at 17:00: 'Vet call' (Mochi) vs 'Grooming brush' (Luna)
 ```
+
 # Paste your pytest output here
 ================================================================== test session starts ===================================================================
 platform win32 -- Python 3.13.9, pytest-9.1.1, pluggy-1.6.0
 rootdir: C:\Users\wendy2.0\Documents\GitHub\M2PawPal
 plugins: anyio-4.14.1
-collected 2 items                                                                                                                                         
+collected 5 items                                                                                                                                         
 
-tests\test_pawpal.py ..                                                                                                                             [100%]
+tests\test_pawpal.py .....                                                                                                                          [100%]
 
-=================================================================== 2 passed in 0.21s ====================================================================
+=================================================================== 5 passed in 0.18s ====================================================================
+
+Description: These 5 tests check status updates for a task, the ability to add a task increasing the task count, their chronological sorting order of tasks based on their time scheduled, scheduled recurring tasks, and conflict detection of tasks occuring at the same time. 
+
+Confidence Level: 4/5 stars
+- The tests cover the most impportant features, but now everything was tested, and there may be other edge cases taht may not have been tested.
+
 ```
 
 
