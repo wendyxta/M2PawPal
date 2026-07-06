@@ -2,6 +2,10 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import date, time, timedelta
 
+from rich.console import Console
+
+_console = Console()
+
 
 # ── Task ──────────────────────────────────────────────────────────────────────
 
@@ -72,7 +76,7 @@ class Owner:
             pet_b, task_b = all_tasks[i + 1]
             if task_a.time == task_b.time:
                 warnings.append(
-                    f"  [WARNING] Conflict at {task_a.time.strftime('%H:%M')}: "
+                    f"Conflict at {task_a.time.strftime('%H:%M')}: "
                     f"'{task_a.title}' ({pet_a.name}) vs '{task_b.title}' ({pet_b.name})"
                 )
         return warnings
@@ -144,7 +148,7 @@ class TaskScheduler:
             recurrence=task.recurrence,
         )
         self.pet.getSchedule(next_date).addTask(next_task)
-        print(f"  [SCHEDULED] '{next_task.title}' auto-scheduled for {next_date}")
+        _console.print(f"  [bold green]📅 Scheduled[/]  '{next_task.title}' → {next_date}")
 
     def getTasksByTime(self) -> list[Task]:
         """Return all tasks sorted by time, then priority."""
