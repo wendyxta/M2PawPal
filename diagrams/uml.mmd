@@ -5,43 +5,43 @@ classDiagram
         +addPet(pet) None
         +removePet(pet) None
         +getPets() list
+        +getTasksByPet(date, pet_name) list
+        +getAllTasksForDate(date) list
+        +checkConflicts(date) list
     }
 
     class Pet {
         +str name
-        +str ownerId
+        +Owner owner
         +str healthNotes
-        +updateInfo(name, healthNotes) None
+        +dict schedulers
         +getOwner() Owner
         +getTasks() list
-        +getSchedule() TaskScheduler
+        +getSchedule(date) TaskScheduler
         +addTask(task) None
         +removeTask(task) None
     }
 
     class Task {
-        <<abstract>>
         +str title
-        +str time
-        +str priority
+        +time time
+        +int priority
         +str status
-        +getPriority() str
-        +getTime() str
+        +str recurrence
+        +complete() None
+        +isComplete() bool
     }
 
     class TaskScheduler {
-        +list tasks
-        +list priorityQueue
-        +str date
         +Pet pet
+        +str date
+        +list tasks
         +addTask(task) None
-        +getDailyTasks() list
-        +prioritizeTasks() list
-        +rescheduleTasks() None
+        +completeTask(task) None
         +getTasksByTime() list
-        +getTasksByPriority() list
+        +getPendingTasks() list
     }
 
     Owner "1" --> "*" Pet : owns
-    Pet "1" --> "1" TaskScheduler : schedules via
+    Pet "1" --> "*" TaskScheduler : schedules via
     TaskScheduler "*" --> "*" Task : manages
