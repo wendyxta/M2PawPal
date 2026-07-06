@@ -57,11 +57,14 @@ Main objects (and attributes + methods) needed (Initial Plan)
 
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
 - What kinds of prompts or questions were most helpful?
+    - I used AI tools for design brainstorming, coming up with the structure including the classes, attributes, and methods for the project, and generating UML diagrams. I used AI for code generation of the main structure classes and algorithms for sorting and filtering tasks. Lastly, I used AI tools for testing to create test cases and documentation to write docstrings for my methods.
+    - The most helpful prompts included context of the current situation, and specific questions that clearly mention specific blocks of code and different files.
 
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
 - How did you evaluate or verify what the AI suggested?
+    - One moment I didn't accept an AI suggestion as-is was when I used it to generate code for filtering tasks based on their completion status. I verified the AI suggested code by running the code myself to test fuctionality, and it seemed like it worked properly. However, the code was not very human readable, with the entire function logic in a one liner. So, I had to adjust my prompt to improve the AI suggestion to be more clear and readable.
 
 ---
 
@@ -71,12 +74,15 @@ Main objects (and attributes + methods) needed (Initial Plan)
 
 - What behaviors did you test?
 - Why were these tests important?
+    - The 5 behaviors I tested for were making status updates (updating a task from in progress to completed)for a task, the ability to add a task which should increase the total, task count, their chronological sorting order of tasks based on their time scheduled, scheduled recurring tasks, and conflict detection of tasks occuring at the same time. These tests are important because they serve as the main logic of my app since the app is all about managing tasks.
+
 
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
-
+    - My Confidence Level: 4/5 stars
+    - The tests cover the most important features, but not everything was tested, and there may be other edge cases that may not have been tested. For example, I would test for other edge cases like displaying lists when there are no stored owners, no pets, or no tasks. I would test time conflicts for when a task is scheduled at the same time as other tasks for the same pet, and other tasks for different pets. I would also test recurring tasks across all pets, and adding the same test twice.
 ---
 
 ## 5. Reflection
@@ -84,11 +90,14 @@ Main objects (and attributes + methods) needed (Initial Plan)
 **a. What went well**
 
 - What part of this project are you most satisfied with?
+    - I am very satisfied with how the project turned out. I think it is a useful app to help people manage their pets and the tasks that they have for each pet. AI was very useful as a coding assistant while creating this project.
 
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
+    - I would mainly work on adding functionality to handle edge cases. While the core functionality works, according to the project directions, there are a few cases that I did not fully implement yet. I would also make the schedule and list of tasks more clear and separate, or combine them since they are qutie similar and show a lot of the same information.
 
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+    - One important thing I learned about designing systems is that there are a lot of things to think about. From planning the design down to the core classes, to creating the backend, to the frontend, to testing the functionality, there are many parts to work on and design.

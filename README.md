@@ -152,11 +152,6 @@ tests\test_pawpal.py .....                                                      
 
 =================================================================== 5 passed in 0.18s ====================================================================
 
-Description: These 5 tests check status updates for a task, the ability to add a task increasing the task count, their chronological sorting order of tasks based on their time scheduled, scheduled recurring tasks, and conflict detection of tasks occuring at the same time. 
-
-Confidence Level: 4/5 stars
-- The tests cover the most impportant features, but now everything was tested, and there may be other edge cases taht may not have been tested.
-
 ```
 
 
@@ -175,10 +170,11 @@ Confidence Level: 4/5 stars
 
 Describe your app in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Enter the owner name. Then enter the pet name, and pet species, and click the Add Pet button to add the pet to the owner. 
+2. Select the current pet from the Active Pet dropdown.
+3. Enter the details of the 1st task (title, time of day in hours and minutes, priority level, and recurrence). Click the add task button to check for scheduling conflicts and add the task to the list of tasks displayed in a table view. Repeat for all tasks.
+4. Click the Generate Schedule button to display the list of sorted tasks based on the time they are scheduled, and based on priority if tasks are scheduled for the same time.
+5. Go to the Task Completion Update section to update the status of tasks. Select a task from the dropdown and click the Mark as Complete button.
+6. Click the Generate Schedule to rebuid the schedule with the updated task completion progress, and an updated task list with the task scheduled for the next day/week, if the task is a recurring task.
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or link to a demo video here -->
